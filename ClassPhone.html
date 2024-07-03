@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>Them dt moi</legend>
+        <label for="Code">Code</label>
+        <br>
+        <input type="number" id="Code" placeholder="">
+        <br>
+        <label for="Name">Name</label>
+        <br>
+        <input type="text" id="Name" placeholder="">
+        <br>
+        <label for="Firm">Firm</label>
+        <br>
+        <input type="text" id="Firm" placeholder="">
+        <br>
+        <label for="Cost">Cost</label>
+        <br>
+        <input type="number" id="Cost" placeholder="">
+        <br>
+        <button type="button" onclick="addNewSmartphone()">Add</button>
+        <br>
+    </fieldset>
+</form>
+<h3>Danh Sach Dien Thoai Moi</h3>
+<p id="total"></p>
+<table border="2px">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Firm</th>
+        <th>Cost($)</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+    </tbody>
+</table>
+<script>
+    class Smartphone {
+        constructor(code, name, firm, cost) {
+            this.code = code;
+            this.name = name;
+            this.firm = firm;
+            this.cost = cost;
+
+        }
+
+        setCode(code) {
+            this.code = code;
+        }
+
+        getCode() {
+            return this.code;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setFirm(firm) {
+            this.firm = firm;
+        }
+
+        getFirm() {
+            return this.firm;
+        }
+
+        setCost(cost){
+            this.cost = cost;
+        }
+
+        getCost() {
+            return this.cost;
+        }
+    }
+
+    let Smartphone1 = new Smartphone("1", "iphone 6", "apple", "100");
+    let Smartphone2 = new Smartphone("2", "nokia", "viettel", "120");
+    let Smartphone3 = new Smartphone("3", "s22 ultra pro", "samsung", "170");
+
+    let Smartphones = [Smartphone1, Smartphone2, Smartphone3];
+
+    function displaySmartphone() {
+        let str = "";
+        for (let i = 0; i < Smartphones.length; i++) {
+            str +=
+                `<tr>
+                    <td>${Smartphones[i].getCode()}</td>
+                    <td>${Smartphones[i].getName()}</td>
+                    <td>${Smartphones[i].getFirm()}</td>
+                    <td>${Smartphones[i].getCost()}</td>
+                </tr>`;
+        }
+        document.getElementById("body").innerHTML = str;
+        document.getElementById("total").innerHTML = Smartphones.length + " phone(s)";
+    }
+
+    displaySmartphone();
+
+
+    function addNewSmartphone() {
+        let SmartphoneCode= document.getElementById("Code").value;
+        let SmartphoneName = document.getElementById("Name").value;
+        let SmartphoneFirm = document.getElementById("Firm").value;
+        let SmartphoneCost = document.getElementById("Cost").value;
+
+        let newSmartphone = new Smartphone(SmartphoneCode, SmartphoneName, SmartphoneFirm, SmartphoneCost);
+        Smartphones.push(newSmartphone);
+
+        document.getElementById("Code").value = "";
+        document.getElementById("Name").value = "";
+        document.getElementById("Firm").value = "";
+        document.getElementById("Cost").value = "";
+
+
+        displaySmartphone();
+        alert("Added new Smartphone successfully");
+    }
+</script>
+</body>
+</html>

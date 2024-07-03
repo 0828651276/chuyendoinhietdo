@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    let arr = [];
+    let sum = 0;
+    let except = 0;
+    function arrInput() {
+        n = + prompt("Moi ban nhap gioi han phan tu trong mang");
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt("moi ban nhap phan tu thu" + i);
+        }
+
+    }
+    arrInput();
+    document.write("ham sau khi nhap la:[" +arr+"]"+"<br>");
+    document.write("so phan tu trong mang la " +arr.length +"<br>");
+    for (let i = 0; i < n; i++) {
+        if (arr[i] % 2 !==0) {
+            except += arr[i]
+        }else {
+            sum += arr[i]
+        }
+    }
+    let result = sum - except;
+    document.write("hieu cua tong cac so chan va tong cac so le la " +result);
+</script>
+</body>
+</html>

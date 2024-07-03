@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="showResult()">
+<p id ="result"></p>
+<script>
+    function increment(number) {
+        return number + 1;
+    }
+
+    function showResult() {
+        let number = +prompt("moi ban nhap so");
+        let result = increment(number);
+        document.getElementById("result").innerText = "Kết quả: " + result;
+    }
+</script>
+</body>
+</html>

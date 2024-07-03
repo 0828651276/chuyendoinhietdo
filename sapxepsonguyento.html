@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(n) {
+        if (n <= 1) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) return false;
+        }
+        return true;
+    }
+
+    function findPrimes(arr) {
+        let primeNumbers = arr.filter(isPrime);
+        return primeNumbers.sort((a, b) => a - b);
+    }
+
+    // Test the function
+    let arr = [29, 15, 12, 37, 10, 3, 5, 7, 11, 1, 19];
+    console.log(findPrimes(arr));
+</script>
+</body>
+</html>
